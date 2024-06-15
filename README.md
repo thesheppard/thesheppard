@@ -1,1 +1,1 @@
-![Metrics](https://metrics.lecoq.io/thesheppard)
+![Metrics](/github-metrics.svg)
