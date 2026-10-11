@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 70" width="1000" height="70" role="img" aria-label="SELECT GAME"><title>SELECT GAME</title>
+<defs><filter id="glow" x="-20%" y="-40%" width="140%" height="180%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<style>
+.a{animation:nudge .8s steps(2) infinite}
+@keyframes nudge{0%{transform:translateX(0)}50%{transform:translateX(8px)}}
+.b{animation:nudge2 .8s steps(2) infinite}
+@keyframes nudge2{0%{transform:translateX(0)}50%{transform:translateX(-8px)}}
+</style>
+<rect width="1000" height="70" rx="10" fill="#0b0221"/>
+<rect x="2" y="2" width="996" height="66" rx="9" fill="none" stroke="#ffd23f" stroke-width="3" stroke-dasharray="12 6"/>
+<g filter="url(#glow)" fill="#ffd23f">
+<path d="M374 21h16v4h-16zM370 25h4v4h-4zM370 29h4v4h-4zM374 33h12v4h-12zM386 37h4v4h-4zM386 41h4v4h-4zM370 45h16v4h-16zM394 21h20v4h-20zM394 25h4v4h-4zM394 29h4v4h-4zM394 33h16v4h-16zM394 37h4v4h-4zM394 41h4v4h-4zM394 45h20v4h-20zM418 21h4v4h-4zM418 25h4v4h-4zM418 29h4v4h-4zM418 33h4v4h-4zM418 37h4v4h-4zM418 41h4v4h-4zM418 45h20v4h-20zM442 21h20v4h-20zM442 25h4v4h-4zM442 29h4v4h-4zM442 33h16v4h-16zM442 37h4v4h-4zM442 41h4v4h-4zM442 45h20v4h-20zM470 21h16v4h-16zM466 25h4v4h-4zM466 29h4v4h-4zM466 33h4v4h-4zM466 37h4v4h-4zM466 41h4v4h-4zM470 45h16v4h-16zM490 21h20v4h-20zM498 25h4v4h-4zM498 29h4v4h-4zM498 33h4v4h-4zM498 37h4v4h-4zM498 41h4v4h-4zM498 45h4v4h-4zM542 21h16v4h-16zM538 25h4v4h-4zM538 29h4v4h-4zM538 33h4v4h-4zM546 33h12v4h-12zM538 37h4v4h-4zM554 37h4v4h-4zM538 41h4v4h-4zM554 41h4v4h-4zM542 45h16v4h-16zM566 21h12v4h-12zM562 25h4v4h-4zM578 25h4v4h-4zM562 29h4v4h-4zM578 29h4v4h-4zM562 33h20v4h-20zM562 37h4v4h-4zM578 37h4v4h-4zM562 41h4v4h-4zM578 41h4v4h-4zM562 45h4v4h-4zM578 45h4v4h-4zM586 21h4v4h-4zM602 21h4v4h-4zM586 25h8v4h-8zM598 25h8v4h-8zM586 29h4v4h-4zM594 29h4v4h-4zM602 29h4v4h-4zM586 33h4v4h-4zM594 33h4v4h-4zM602 33h4v4h-4zM586 37h4v4h-4zM602 37h4v4h-4zM586 41h4v4h-4zM602 41h4v4h-4zM586 45h4v4h-4zM602 45h4v4h-4zM610 21h20v4h-20zM610 25h4v4h-4zM610 29h4v4h-4zM610 33h16v4h-16zM610 37h4v4h-4zM610 41h4v4h-4zM610 45h20v4h-20z"/>
+<g class="a"><path d="M4 0h4v4h-4zM8 4h4v4h-4zM12 8h4v4h-4zM16 12h4v4h-4zM12 16h4v4h-4zM8 20h4v4h-4zM4 24h4v4h-4z" transform="translate(310.0 21)"/></g>
+<g class="b"><path d="M4 0h4v4h-4zM8 4h4v4h-4zM12 8h4v4h-4zM16 12h4v4h-4zM12 16h4v4h-4zM8 20h4v4h-4zM4 24h4v4h-4z" transform="translate(690.0 21) scale(-1 1)"/></g>
+</g>
+</svg>

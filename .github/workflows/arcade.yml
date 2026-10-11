@@ -1,0 +1,51 @@
+name: Arcade stats
+
+on:
+  schedule:
+    - cron: "17 3 * * *" # daily
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/**"
+      - ".github/workflows/arcade.yml"
+
+# Nothing by default; the job below asks only for what it needs.
+permissions: {}
+
+concurrency:
+  group: arcade-stats
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write # commit the regenerated SVGs
+    steps:
+      # Pinned to a full commit SHA so a moved tag can't change what runs.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      # Standard-library Python only: no third-party actions or packages.
+      - name: Fetch stats
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GH_LOGIN: ${{ github.repository_owner }}
+        run: python3 scripts/fetch_stats.py
+
+      - name: Render art
+        run: python3 scripts/build_arcade.py
+
+      - name: Commit changes
+        run: |
+          git add assets
+          if git diff --cached --quiet; then
+            echo "Nothing changed"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update arcade stats [skip ci]"
+          git pull --rebase origin main
+          git push origin HEAD:main

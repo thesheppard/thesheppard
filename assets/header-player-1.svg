@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 70" width="1000" height="70" role="img" aria-label="PLAYER 1"><title>PLAYER 1</title>
+<defs><filter id="glow" x="-20%" y="-40%" width="140%" height="180%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<style>
+.a{animation:nudge .8s steps(2) infinite}
+@keyframes nudge{0%{transform:translateX(0)}50%{transform:translateX(8px)}}
+.b{animation:nudge2 .8s steps(2) infinite}
+@keyframes nudge2{0%{transform:translateX(0)}50%{transform:translateX(-8px)}}
+</style>
+<rect width="1000" height="70" rx="10" fill="#0b0221"/>
+<rect x="2" y="2" width="996" height="66" rx="9" fill="none" stroke="#a5ff3c" stroke-width="3" stroke-dasharray="12 6"/>
+<g filter="url(#glow)" fill="#a5ff3c">
+<path d="M406 21h16v4h-16zM406 25h4v4h-4zM422 25h4v4h-4zM406 29h4v4h-4zM422 29h4v4h-4zM406 33h16v4h-16zM406 37h4v4h-4zM406 41h4v4h-4zM406 45h4v4h-4zM430 21h4v4h-4zM430 25h4v4h-4zM430 29h4v4h-4zM430 33h4v4h-4zM430 37h4v4h-4zM430 41h4v4h-4zM430 45h20v4h-20zM458 21h12v4h-12zM454 25h4v4h-4zM470 25h4v4h-4zM454 29h4v4h-4zM470 29h4v4h-4zM454 33h20v4h-20zM454 37h4v4h-4zM470 37h4v4h-4zM454 41h4v4h-4zM470 41h4v4h-4zM454 45h4v4h-4zM470 45h4v4h-4zM478 21h4v4h-4zM494 21h4v4h-4zM478 25h4v4h-4zM494 25h4v4h-4zM482 29h4v4h-4zM490 29h4v4h-4zM486 33h4v4h-4zM486 37h4v4h-4zM486 41h4v4h-4zM486 45h4v4h-4zM502 21h20v4h-20zM502 25h4v4h-4zM502 29h4v4h-4zM502 33h16v4h-16zM502 37h4v4h-4zM502 41h4v4h-4zM502 45h20v4h-20zM526 21h16v4h-16zM526 25h4v4h-4zM542 25h4v4h-4zM526 29h4v4h-4zM542 29h4v4h-4zM526 33h16v4h-16zM526 37h4v4h-4zM534 37h4v4h-4zM526 41h4v4h-4zM538 41h4v4h-4zM526 45h4v4h-4zM542 45h4v4h-4zM582 21h4v4h-4zM578 25h8v4h-8zM582 29h4v4h-4zM582 33h4v4h-4zM582 37h4v4h-4zM582 41h4v4h-4zM578 45h12v4h-12z"/>
+<g class="a"><path d="M4 0h4v4h-4zM8 4h4v4h-4zM12 8h4v4h-4zM16 12h4v4h-4zM12 16h4v4h-4zM8 20h4v4h-4zM4 24h4v4h-4z" transform="translate(346.0 21)"/></g>
+<g class="b"><path d="M4 0h4v4h-4zM8 4h4v4h-4zM12 8h4v4h-4zM16 12h4v4h-4zM12 16h4v4h-4zM8 20h4v4h-4zM4 24h4v4h-4z" transform="translate(654.0 21) scale(-1 1)"/></g>
+</g>
+</svg>

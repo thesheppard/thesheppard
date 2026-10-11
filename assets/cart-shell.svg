@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 250" width="220" height="250" role="img" aria-label="SHELL SHOCK"><title>SHELL SHOCK</title>
+<defs>
+<linearGradient id="plastic" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#4a4a58"/><stop offset="1" stop-color="#26262f"/></linearGradient>
+<linearGradient id="label" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#89e051"/><stop offset="1" stop-color="#1e7a1e"/></linearGradient>
+<linearGradient id="shine" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".45"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<clipPath id="lc"><rect x="22" y="44" width="176" height="150" rx="6"/></clipPath>
+<pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="2" height="2" fill="#fff" opacity=".12"/></pattern>
+</defs>
+<style>
+.sh{animation:sh 4s ease-in-out infinite}
+@keyframes sh{0%,60%{transform:translateX(-160px)}100%{transform:translateX(260px)}}
+.fl{animation:fl 1.6s steps(2) infinite}
+@keyframes fl{0%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+</style>
+<path d="M14 0H206Q220 0 220 14V220L206 220V244Q206 250 200 250H20Q14 250 14 244V220L0 220V14Q0 0 14 0Z" fill="url(#plastic)"/>
+<path d="M14 0H206Q220 0 220 14V220L206 220V244Q206 250 200 250H20Q14 250 14 244V220L0 220V14Q0 0 14 0Z" fill="none" stroke="#000" stroke-opacity=".5" stroke-width="2"/>
+<rect x="30" y="10" width="8" height="22" rx="2" fill="#000" opacity=".25"/><rect x="48" y="10" width="8" height="22" rx="2" fill="#000" opacity=".25"/><rect x="66" y="10" width="8" height="22" rx="2" fill="#000" opacity=".25"/><rect x="84" y="10" width="8" height="22" rx="2" fill="#000" opacity=".25"/><rect x="102" y="10" width="8" height="22" rx="2" fill="#000" opacity=".25"/><rect x="120" y="10" width="8" height="22" rx="2" fill="#000" opacity=".25"/><rect x="138" y="10" width="8" height="22" rx="2" fill="#000" opacity=".25"/><rect x="156" y="10" width="8" height="22" rx="2" fill="#000" opacity=".25"/><rect x="174" y="10" width="8" height="22" rx="2" fill="#000" opacity=".25"/>
+<rect x="18" y="40" width="184" height="158" rx="8" fill="#15151c"/>
+<g clip-path="url(#lc)">
+<rect x="22" y="44" width="176" height="150" fill="url(#label)"/>
+<rect x="22" y="44" width="176" height="150" fill="url(#dots)"/>
+<rect x="22" y="112" width="176" height="82" fill="#0b0221" opacity=".55"/>
+<g class="fl"><path d="M92.5 60h35v5h-35zM87.5 65h45v5h-45zM87.5 70h10v5h-10zM107.5 70h5v5h-5zM122.5 70h10v5h-10zM87.5 75h10v5h-10zM107.5 75h5v5h-5zM122.5 75h10v5h-10zM87.5 80h45v5h-45zM92.5 85h15v5h-15zM112.5 85h15v5h-15zM97.5 90h5v5h-5zM107.5 90h5v5h-5zM117.5 90h5v5h-5zM97.5 95h25v5h-25z" fill="#000" opacity=".35" transform="translate(3 3)"/><path d="M92.5 60h35v5h-35zM87.5 65h45v5h-45zM87.5 70h10v5h-10zM107.5 70h5v5h-5zM122.5 70h10v5h-10zM87.5 75h10v5h-10zM107.5 75h5v5h-5zM122.5 75h10v5h-10zM87.5 80h45v5h-45zM92.5 85h15v5h-15zM112.5 85h15v5h-15zM97.5 90h5v5h-5zM107.5 90h5v5h-5zM117.5 90h5v5h-5zM97.5 95h25v5h-25z" fill="#fff"/></g>
+<path d="M56 122h16v4h-16zM52 126h4v4h-4zM52 130h4v4h-4zM56 134h12v4h-12zM68 138h4v4h-4zM68 142h4v4h-4zM52 146h16v4h-16zM76 122h4v4h-4zM92 122h4v4h-4zM76 126h4v4h-4zM92 126h4v4h-4zM76 130h4v4h-4zM92 130h4v4h-4zM76 134h20v4h-20zM76 138h4v4h-4zM92 138h4v4h-4zM76 142h4v4h-4zM92 142h4v4h-4zM76 146h4v4h-4zM92 146h4v4h-4zM100 122h20v4h-20zM100 126h4v4h-4zM100 130h4v4h-4zM100 134h16v4h-16zM100 138h4v4h-4zM100 142h4v4h-4zM100 146h20v4h-20zM124 122h4v4h-4zM124 126h4v4h-4zM124 130h4v4h-4zM124 134h4v4h-4zM124 138h4v4h-4zM124 142h4v4h-4zM124 146h20v4h-20zM148 122h4v4h-4zM148 126h4v4h-4zM148 130h4v4h-4zM148 134h4v4h-4zM148 138h4v4h-4zM148 142h4v4h-4zM148 146h20v4h-20z" fill="#000" opacity=".5" transform="translate(2 2)"/><path d="M56 122h16v4h-16zM52 126h4v4h-4zM52 130h4v4h-4zM56 134h12v4h-12zM68 138h4v4h-4zM68 142h4v4h-4zM52 146h16v4h-16zM76 122h4v4h-4zM92 122h4v4h-4zM76 126h4v4h-4zM92 126h4v4h-4zM76 130h4v4h-4zM92 130h4v4h-4zM76 134h20v4h-20zM76 138h4v4h-4zM92 138h4v4h-4zM76 142h4v4h-4zM92 142h4v4h-4zM76 146h4v4h-4zM92 146h4v4h-4zM100 122h20v4h-20zM100 126h4v4h-4zM100 130h4v4h-4zM100 134h16v4h-16zM100 138h4v4h-4zM100 142h4v4h-4zM100 146h20v4h-20zM124 122h4v4h-4zM124 126h4v4h-4zM124 130h4v4h-4zM124 134h4v4h-4zM124 138h4v4h-4zM124 142h4v4h-4zM124 146h20v4h-20zM148 122h4v4h-4zM148 126h4v4h-4zM148 130h4v4h-4zM148 134h4v4h-4zM148 138h4v4h-4zM148 142h4v4h-4zM148 146h20v4h-20z" fill="#fff"/>
+<path d="M69.5 160h12v3h-12zM66.5 163h3v3h-3zM66.5 166h3v3h-3zM69.5 169h9v3h-9zM78.5 172h3v3h-3zM78.5 175h3v3h-3zM66.5 178h12v3h-12zM84.5 160h3v3h-3zM96.5 160h3v3h-3zM84.5 163h3v3h-3zM96.5 163h3v3h-3zM84.5 166h3v3h-3zM96.5 166h3v3h-3zM84.5 169h15v3h-15zM84.5 172h3v3h-3zM96.5 172h3v3h-3zM84.5 175h3v3h-3zM96.5 175h3v3h-3zM84.5 178h3v3h-3zM96.5 178h3v3h-3zM105.5 160h9v3h-9zM102.5 163h3v3h-3zM114.5 163h3v3h-3zM102.5 166h3v3h-3zM114.5 166h3v3h-3zM102.5 169h3v3h-3zM114.5 169h3v3h-3zM102.5 172h3v3h-3zM114.5 172h3v3h-3zM102.5 175h3v3h-3zM114.5 175h3v3h-3zM105.5 178h9v3h-9zM123.5 160h12v3h-12zM120.5 163h3v3h-3zM120.5 166h3v3h-3zM120.5 169h3v3h-3zM120.5 172h3v3h-3zM120.5 175h3v3h-3zM123.5 178h12v3h-12zM138.5 160h3v3h-3zM150.5 160h3v3h-3zM138.5 163h3v3h-3zM147.5 163h3v3h-3zM138.5 166h3v3h-3zM144.5 166h3v3h-3zM138.5 169h6v3h-6zM138.5 172h3v3h-3zM144.5 172h3v3h-3zM138.5 175h3v3h-3zM147.5 175h3v3h-3zM138.5 178h3v3h-3zM150.5 178h3v3h-3z" fill="#89e051"/>
+<g class="sh"><rect x="22" y="44" width="60" height="150" fill="url(#shine)" transform="skewX(-20)"/></g>
+</g>
+<path d="M79 212h2v2h-2zM77 214h4v2h-4zM79 216h2v2h-2zM79 218h2v2h-2zM79 220h2v2h-2zM79 222h2v2h-2zM77 224h6v2h-6zM91 212h4v2h-4zM89 214h2v2h-2zM87 216h2v2h-2zM87 218h8v2h-8zM87 220h2v2h-2zM95 220h2v2h-2zM87 222h2v2h-2zM95 222h2v2h-2zM89 224h6v2h-6zM99 218h10v2h-10zM111 212h8v2h-8zM111 214h2v2h-2zM119 214h2v2h-2zM111 216h2v2h-2zM119 216h2v2h-2zM111 218h8v2h-8zM111 220h2v2h-2zM119 220h2v2h-2zM111 222h2v2h-2zM119 222h2v2h-2zM111 224h8v2h-8zM123 212h10v2h-10zM127 214h2v2h-2zM127 216h2v2h-2zM127 218h2v2h-2zM127 220h2v2h-2zM127 222h2v2h-2zM123 224h10v2h-10zM135 212h10v2h-10zM139 214h2v2h-2zM139 216h2v2h-2zM139 218h2v2h-2zM139 220h2v2h-2zM139 222h2v2h-2zM139 224h2v2h-2z" fill="#9a9aab"/>
+</svg>
