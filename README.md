@@ -14,18 +14,8 @@
   <img src="assets/header-select-game.svg" alt="Select game" width="100%">
 </p>
 
-<p align="center">
-  <a href="https://github.com/thesheppard?tab=repositories&language=php"><img src="assets/cart-php.svg" alt="PHP Quest" width="22%"></a>
-  <a href="https://github.com/thesheppard?tab=repositories&language=javascript"><img src="assets/cart-javascript.svg" alt="JS Jumper" width="22%"></a>
-  <a href="https://github.com/thesheppard?tab=repositories&language=typescript"><img src="assets/cart-typescript.svg" alt="TypeScript Turbo" width="22%"></a>
-  <a href="https://github.com/thesheppard?tab=repositories&language=vue"><img src="assets/cart-vue.svg" alt="Vue Fighter" width="22%"></a>
-</p>
-<p align="center">
-  <a href="https://github.com/thesheppard?tab=repositories&language=css"><img src="assets/cart-css.svg" alt="CSS Crusader" width="22%"></a>
-  <a href="https://github.com/thesheppard?tab=repositories&language=shell"><img src="assets/cart-shell.svg" alt="Shell Shock" width="22%"></a>
-  <a href="https://github.com/thesheppard?tab=repositories&language=mql5"><img src="assets/cart-mql5.svg" alt="MQL5 Market Raid" width="22%"></a>
-  <a href="https://github.com/thesheppard?tab=repositories&language=html"><img src="assets/cart-html.svg" alt="HTML Hero" width="22%"></a>
-</p>
+<!-- CARTRIDGES:START -->
+<!-- CARTRIDGES:END -->
 
 <p align="center"><sub>🕹️ Blow on a cartridge to load it: each one opens my repos in that language.</sub></p>
 

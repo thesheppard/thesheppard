@@ -59,6 +59,7 @@ def fetch_profile(token, login):
           pageInfo { hasNextPage endCursor }
           nodes {
             stargazerCount
+            primaryLanguage { name color }
             languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {
               edges { size node { name color } }
             }
@@ -152,6 +153,16 @@ def main():
         for name, size in sorted(sizes.items(), key=lambda kv: -kv[1])[:8]
     ]
 
+    # Languages that are the main language of at least one public repo, so
+    # the README can link to a non-empty "repos in this language" page.
+    primary = {}
+    for repo in repos:
+        lang = repo.get("primaryLanguage")
+        if lang:
+            entry = primary.setdefault(lang["name"], {"name": lang["name"], "color": lang["color"] or "#8b949e", "repos": 0})
+            entry["repos"] += 1
+    repo_languages = sorted(primary.values(), key=lambda l: (-l["repos"], l["name"]))
+
     stats = {
         "login": login,
         "updated": today.isoformat(),
@@ -164,6 +175,7 @@ def main():
         "longest_streak": longest,
         **totals,
         "languages": languages,
+        "repo_languages": repo_languages,
     }
     OUT.write_text(json.dumps(stats, indent=2) + "\n", encoding="utf-8")
     print(f"wrote {OUT.relative_to(OUT.parent.parent)}")

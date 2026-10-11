@@ -18,6 +18,7 @@ import json
 import re
 from datetime import date
 from pathlib import Path
+from urllib.parse import quote_plus
 from xml.sax.saxutils import escape
 
 # ---------------------------------------------------------------- CONFIG ---
@@ -25,18 +26,28 @@ PLAYER = "THESHEPPARD"
 TAGLINE = "SOFTWARE ENGINEER"
 GITHUB_USER = "thesheppard"
 
-# Each cartridge: (file slug, title line 1, title line 2, label colour A,
-# label colour B, sprite name, GitHub language filter)
-CARTRIDGES = [
-    ("php", "PHP", "QUEST", "#4f5d95", "#a7b0ff", "sword", "php"),
-    ("javascript", "JS", "JUMPER", "#f7df1e", "#ff9f1c", "bolt", "javascript"),
-    ("typescript", "TYPESCRIPT", "TURBO", "#3178c6", "#00d4ff", "ship", "typescript"),
-    ("vue", "VUE", "FIGHTER", "#41b883", "#35495e", "gem", "vue"),
-    ("css", "CSS", "CRUSADER", "#e44d9b", "#663399", "heart", "css"),
-    ("shell", "SHELL", "SHOCK", "#89e051", "#1e7a1e", "skull", "shell"),
-    ("mql5", "MQL5", "MARKET RAID", "#ff3864", "#ffb000", "coin", "mql5"),
-    ("html", "HTML", "HERO", "#e34c26", "#f06529", "star", "html"),
-]
+# Cartridges are picked automatically: one per language that is the main
+# language of at least one public repo (up to MAX_CARTRIDGES), so every
+# cartridge links to a page that has repos on it.  Languages listed here get
+# a custom game title; anything else gets a generated one.
+# GitHub language name: (title line 1, title line 2, label colour A,
+# label colour B, sprite name)
+CARTRIDGE_THEMES = {
+    "PHP": ("PHP", "QUEST", "#4f5d95", "#a7b0ff", "sword"),
+    "JavaScript": ("JS", "JUMPER", "#f7df1e", "#ff9f1c", "bolt"),
+    "TypeScript": ("TS", "TURBO", "#3178c6", "#00d4ff", "ship"),
+    "Python": ("PYTHON", "SNAKE PIT", "#3572a5", "#ffd43b", "snake"),
+    "Vue": ("VUE", "FIGHTER", "#41b883", "#35495e", "gem"),
+    "CSS": ("CSS", "CRUSADER", "#e44d9b", "#663399", "heart"),
+    "SCSS": ("SCSS", "CRUSADER", "#c6538c", "#663399", "heart"),
+    "Shell": ("SHELL", "SHOCK", "#89e051", "#1e7a1e", "skull"),
+    "MQL5": ("MQL5", "MARKET RAID", "#ff3864", "#ffb000", "coin"),
+    "HTML": ("HTML", "HERO", "#e34c26", "#f06529", "star"),
+}
+FALLBACK_TITLES = ["ADVENTURE", "BLASTER", "LEGENDS", "DX", "ARENA", "RUSH"]
+FALLBACK_SPRITES = ["star", "gem", "bolt", "coin", "ship", "heart"]
+MAX_CARTRIDGES = 8
+README = Path(__file__).resolve().parent.parent / "README.md"
 
 # Fighter-select stat bars, 0-10.  Purely for fun.
 STATS = [
@@ -165,6 +176,8 @@ SPRITES = {
              "110010011", "011000110", "001111100"],
     "star": ["000010000", "000111000", "111111111", "011111110", "001111100",
              "011101110", "110000011"],
+    "snake": ["000011110", "000110011", "000111111", "000110000", "011100000",
+              "110000000", "110001110", "011111011"],
     "joystick": ["0011100", "0111110", "0111110", "0011100", "0001000",
                  "0001000", "1111111", "1111111"],
 }
@@ -354,6 +367,55 @@ def header(slug, text, colour):
 
 
 # --------------------------------------------------------------- CARTRIDGE --
+def slugify(name):
+    name = name.lower().replace("#", "sharp").replace("+", "plus")
+    return re.sub(r"[^a-z0-9]+", "-", name).strip("-") or "lang"
+
+
+def cartridge_list():
+    """(slug, line 1, line 2, colour A, colour B, sprite, language) per cartridge."""
+    langs = [
+        l for l in DATA.get("repo_languages", [])
+        if isinstance(l, dict) and isinstance(l.get("name"), str) and l.get("repos", 0) > 0
+    ][:MAX_CARTRIDGES]
+    carts = []
+    for i, l in enumerate(langs):
+        name = l["name"]
+        if name in CARTRIDGE_THEMES:
+            line1, line2, c1, c2, sprite = CARTRIDGE_THEMES[name]
+        else:
+            c1 = safe_colour(l.get("color"))
+            line1, line2, c2, sprite = (
+                name.upper()[:12], FALLBACK_TITLES[i % len(FALLBACK_TITLES)],
+                "#0b0221", FALLBACK_SPRITES[i % len(FALLBACK_SPRITES)],
+            )
+        carts.append((slugify(name), line1, line2, c1, c2, sprite, name))
+    return carts
+
+
+def update_readme(carts):
+    """Rewrite the cartridge shelf between the CARTRIDGES markers in README.md."""
+    start, end = "<!-- CARTRIDGES:START -->", "<!-- CARTRIDGES:END -->"
+    text = README.read_text(encoding="utf-8")
+    if start not in text or end not in text:
+        print("README.md has no CARTRIDGES markers; leaving it alone")
+        return
+    width = "22%" if len(carts) > 3 else "28%"
+    rows = []
+    for r in range(0, len(carts), 4):
+        links = "\n".join(
+            f'  <a href="https://github.com/{GITHUB_USER}?tab=repositories&amp;language={quote_plus(lang.lower())}">'
+            f'<img src="assets/cart-{slug}.svg" alt="{escape(f"{line1} {line2}".title(), {chr(34): "&quot;"})}" width="{width}"></a>'
+            for slug, line1, line2, _, _, _, lang in carts[r:r + 4]
+        )
+        rows.append(f'<p align="center">\n{links}\n</p>')
+    block = "\n".join(rows)
+    before, rest = text.split(start, 1)
+    after = rest.split(end, 1)[1]
+    README.write_text(f"{before}{start}\n{block}\n{end}{after}", encoding="utf-8")
+    print("updated README.md cartridge shelf")
+
+
 def cartridge(slug, line1, line2, c1, c2, sprite, _lang):
     W, H = 220, 250
     # plastic shell with the classic notched top and grip ridges
@@ -370,7 +432,7 @@ def cartridge(slug, line1, line2, c1, c2, sprite, _lang):
     sscale = 5
     spw = len(sp[0]) * sscale
     sprite_d = bitmap_path(sp, W / 2 - spw / 2, ly + 16, sscale)
-    s1 = 4 if text_width(line1, 4) <= lw - 16 else 3
+    s1 = next((s for s in (4, 3, 2) if text_width(line1, s) <= lw - 16), 2)
     s2 = 3 if text_width(line2, 3) <= lw - 16 else 2
     t1 = pixel_text(line1, W / 2, ly + 78, s1, anchor="middle")
     t2 = pixel_text(line2, W / 2, ly + 78 + 7 * s1 + 10, s2, anchor="middle")
@@ -618,8 +680,15 @@ if __name__ == "__main__":
     header("select-game", "SELECT GAME", "#ffd23f")
     header("player-1", "PLAYER 1", "#a5ff3c")
     header("high-scores", "HIGH SCORES", "#3cf0ff")
-    for cart in CARTRIDGES:
-        cartridge(*cart)
+    carts = cartridge_list()
+    if carts:  # without stats, keep whatever cartridges are already there
+        keep = {f"cart-{c[0]}.svg" for c in carts}
+        for old in OUT.glob("cart-*.svg"):
+            if old.name not in keep:
+                old.unlink()
+        for cart in carts:
+            cartridge(*cart)
+        update_readme(carts)
     player_card()
     high_scores()
     power_ups()
