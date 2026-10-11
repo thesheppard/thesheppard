@@ -74,6 +74,10 @@ def num(key, digits=None):
     return str(value).zfill(digits) if digits else str(value)
 
 
+def days(key):
+    return num(key) + (" DAY" if DATA.get(key) == 1 else " DAYS")
+
+
 def level():
     """Years on GitHub, arcade style."""
     since = DATA.get("member_since")
@@ -485,15 +489,17 @@ ROW_COLOURS = ["#ffd23f", "#ff8a3d", "#ff2e88", "#e44dff", "#3cf0ff", "#a5ff3c",
 
 
 def high_scores():
+    # GitHub only reports private work as one total, so commit and PR
+    # counts are public-only and the private total gets its own row.
     rows = [
         ("CONTRIBUTIONS", "contributions"),
-        ("COMMITS", "commits"),
-        ("PR REVIEWS", "reviews"),
-        ("PULL REQUESTS", "pull_requests"),
-        ("ISSUES", "issues"),
+        ("PRIVATE WORK", "private"),
+        ("LAST 365 DAYS", "contributions_last_year"),
+        ("PUBLIC COMMITS", "commits"),
+        ("PUBLIC PRS", "pull_requests"),
         ("PUBLIC REPOS", "public_repos"),
-        ("STARS EARNED", "stars"),
         ("FOLLOWERS", "followers"),
+        ("STARS EARNED", "stars"),
     ]
     # rank like a real high-score table: biggest number first
     rows.sort(key=lambda r: -DATA[r[1]] if isinstance(DATA.get(r[1]), int) else 0)
@@ -518,12 +524,12 @@ def high_scores():
         )
         y += 44
     private = DATA.get("private", 0)
-    note = "ALL TIME  -  INCL. PRIVATE" if isinstance(private, int) and private > 0 else "ALL TIME  -  PUBLIC ACTIVITY"
+    note = "ALL TIME  -  CONTRIBUTIONS INCLUDE PRIVATE REPOS" if isinstance(private, int) and private > 0 else "ALL TIME  -  PUBLIC ACTIVITY"
     updated = DATA.get("updated", "")
     updated = updated if re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(updated)) else "NEVER"
     combo = (
-        f'<path d="{pixel_text("COMBO " + num("current_streak") + " DAYS", 140, 488, 3)}" fill="#a5ff3c"/>'
-        f'<path d="{pixel_text("BEST COMBO " + num("longest_streak") + " DAYS", 870, 488, 3, anchor="end")}" fill="#ffd23f"/>'
+        f'<path d="{pixel_text("COMBO " + days("current_streak"), 140, 488, 3)}" fill="#a5ff3c"/>'
+        f'<path d="{pixel_text("BEST COMBO " + days("longest_streak"), 870, 488, 3, anchor="end")}" fill="#ffd23f"/>'
     )
     body = f"""
 <defs>{SCANLINES}{GLOW.format(s=3)}
