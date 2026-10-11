@@ -15,6 +15,12 @@
 </p>
 
 <!-- CARTRIDGES:START -->
+<p align="center">
+  <a href="https://github.com/thesheppard?tab=repositories&amp;language=javascript"><img src="assets/cart-javascript.svg" alt="Js Jumper" width="22%"></a>
+  <a href="https://github.com/thesheppard?tab=repositories&amp;language=css"><img src="assets/cart-css.svg" alt="Css Crusader" width="22%"></a>
+  <a href="https://github.com/thesheppard?tab=repositories&amp;language=python"><img src="assets/cart-python.svg" alt="Python Snake Pit" width="22%"></a>
+  <a href="https://github.com/thesheppard?tab=repositories&amp;language=vue"><img src="assets/cart-vue.svg" alt="Vue Fighter" width="22%"></a>
+</p>
 <!-- CARTRIDGES:END -->
 
 <p align="center"><sub>🕹️ Blow on a cartridge to load it: each one opens my repos in that language.</sub></p>

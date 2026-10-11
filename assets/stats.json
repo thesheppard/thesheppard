@@ -45,5 +45,27 @@
       "color": "#41b883",
       "percent": 2.0
     }
+  ],
+  "repo_languages": [
+    {
+      "name": "JavaScript",
+      "color": "#f1e05a",
+      "repos": 4
+    },
+    {
+      "name": "CSS",
+      "color": "#663399",
+      "repos": 1
+    },
+    {
+      "name": "Python",
+      "color": "#3572A5",
+      "repos": 1
+    },
+    {
+      "name": "Vue",
+      "color": "#41b883",
+      "repos": 1
+    }
   ]
 }
